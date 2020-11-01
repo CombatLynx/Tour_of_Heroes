@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { MessagesComponent } from './messages/messages.component';
+import { MusicPanelComponent} from './music-panel/music-panel.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -21,7 +22,8 @@ import { AppRoutingModule } from './app-routing.module';
     DashboardComponent,
     HeroesComponent,
     HeroDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    MusicPanelComponent
   ],
   bootstrap: [ AppComponent ]
 })

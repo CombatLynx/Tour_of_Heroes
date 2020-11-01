@@ -1,0 +1,23 @@
+<div class="container music__player">
+
+  <div *ngFor="let song of songs" (click)="openFile(song.url)">
+      {{song.categoriesId == this.id ? song.name: ""}}
+  </div>
+
+<div>
+  <button (click)="play()"> Play </button>
+  <button (click)="pause()"> Pause </button>
+  <button (click)="stop()"> Stop </button>
+</div>
+
+<div>
+  <span> {{currentTime}} </span>
+    <input type="range" min="0" max="{{duration}}" [value]="seek" (input)="setSeekTo($event)">
+  <span> {{duration}} </span>
+</div>
+
+<div>
+  <span> volume </span>
+  <input type="range" min="0" max="1" step="0.01" value="0.3" (input)="setVolume($event)">
+</div>
+</div>
