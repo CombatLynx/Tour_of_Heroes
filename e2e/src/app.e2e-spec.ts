@@ -57,11 +57,11 @@ describe('Tutorial part 6', () => {
       topHeroes: element.all(by.css('app-root app-dashboard > div h4')),
 
       appHeroesHref: navElts.get(1),
-      appHeroes: element(by.css('app-root app-heroes')),
-      allHeroes: element.all(by.css('app-root app-heroes li')),
-      selectedHeroSubview: element(by.css('app-root app-heroes > div:last-child')),
+      appHeroes: element(by.css('app-root app-groups')),
+      allHeroes: element.all(by.css('app-root app-groups li')),
+      selectedHeroSubview: element(by.css('app-root app-groups > div:last-child')),
 
-      heroDetail: element(by.css('app-root app-hero-detail > div')),
+      heroDetail: element(by.css('app-root app-group-detail > div')),
 
       searchBox: element(by.css('#search-box')),
       searchResults: element.all(by.css('.search-result li'))
@@ -95,7 +95,7 @@ describe('Tutorial part 6', () => {
 
     beforeAll(() => browser.get(''));
 
-    it('has top heroes', () => {
+    it('has top groups', () => {
       const page = getPageElts();
       expect(page.topHeroes.count()).toEqual(4);
     });
@@ -134,7 +134,7 @@ describe('Tutorial part 6', () => {
       getPageElts().appHeroesHref.click();
       const page = getPageElts();
       expect(page.appHeroes.isPresent()).toBeTruthy();
-      expect(page.allHeroes.count()).toEqual(10, 'number of heroes');
+      expect(page.allHeroes.count()).toEqual(10, 'number of groups');
     });
 
     it('can route to hero details', async () => {
@@ -163,7 +163,7 @@ describe('Tutorial part 6', () => {
 
       const page = getPageElts();
       expect(page.appHeroes.isPresent()).toBeTruthy();
-      expect(page.allHeroes.count()).toEqual(9, 'number of heroes');
+      expect(page.allHeroes.count()).toEqual(9, 'number of groups');
       const heroesAfter = await toHeroArray(page.allHeroes);
       // console.log(await Hero.fromLi(page.allHeroes[0]));
       const expectedHeroes =  heroesBefore.filter(h => h.name !== newHeroName);
@@ -181,9 +181,9 @@ describe('Tutorial part 6', () => {
 
       const page = getPageElts();
       const heroesAfter = await toHeroArray(page.allHeroes);
-      expect(heroesAfter.length).toEqual(numHeroes + 1, 'number of heroes');
+      expect(heroesAfter.length).toEqual(numHeroes + 1, 'number of groups');
 
-      expect(heroesAfter.slice(0, numHeroes)).toEqual(heroesBefore, 'Old heroes are still there');
+      expect(heroesAfter.slice(0, numHeroes)).toEqual(heroesBefore, 'Old groups are still there');
 
       const maxId = heroesBefore[heroesBefore.length - 1].id;
       expect(heroesAfter[numHeroes]).toEqual({id: maxId + 1, name: addedHeroName});
@@ -197,7 +197,7 @@ describe('Tutorial part 6', () => {
           expect(button.getCssValue('border')).toContain('none');
           expect(button.getCssValue('padding')).toBe('5px 10px');
           expect(button.getCssValue('border-radius')).toBe('4px');
-          // Styles defined in heroes.component.css
+          // Styles defined in groups.component.css
           expect(button.getCssValue('left')).toBe('194px');
           expect(button.getCssValue('top')).toBe('-32px');
         }

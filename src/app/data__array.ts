@@ -1,7 +1,7 @@
-import { Hero } from './hero';
-import {Song} from './hero';
+import { Group } from './interfaces/group__and__song';
+import { Song } from './interfaces/group__and__song';
 
-export const HEROES: Hero[] = [
+export const GROUPS: Group[] = [
   { id: 1, name: 'Metallica'},
   { id: 2, name: 'Queen'},
   { id: 3, name: 'Kiss'},

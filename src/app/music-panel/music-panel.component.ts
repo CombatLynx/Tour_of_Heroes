@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import * as moment from 'moment';
-import {HEROES, SONGS} from '../data__array';
+import {GROUPS, SONGS} from '../data__array';
 
 @Component({
   selector: 'app-music-panel',
@@ -25,7 +25,7 @@ export class MusicPanelComponent {
 
   @Input() id: number;
 
-  files = HEROES;
+  files = GROUPS;
   songs = SONGS;
 
   currentTime = '00:00:00';

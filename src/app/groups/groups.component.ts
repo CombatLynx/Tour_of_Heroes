@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Group } from '../interfaces/group__and__song';
 import { GroupService } from '../services/group.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: [ './dashboard.component.css' ]
+  selector: 'app-groups',
+  templateUrl: './groups.component.html',
+  styleUrls: ['./groups.component.css']
 })
-export class DashboardComponent implements OnInit {
-  groups: Group[] = [];
+export class GroupsComponent implements OnInit {
+  groups: Group[];
 
   constructor(private groupService: GroupService) { }
 
@@ -18,6 +19,6 @@ export class DashboardComponent implements OnInit {
 
   getGroups(): void {
     this.groupService.getGroups()
-      .subscribe(groups => this.groups = groups.slice(0, 10));
+    .subscribe(groups => this.groups = groups);
   }
 }

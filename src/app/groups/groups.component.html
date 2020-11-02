@@ -1,0 +1,8 @@
+<h2>My Groups</h2>
+<ul class="groups">
+  <li *ngFor="let group of groups">
+    <a routerLink="/detail/{{group.id}}">
+      <span class="badge">{{group.id}}</span> {{group.name}}
+    </a>
+  </li>
+</ul>
